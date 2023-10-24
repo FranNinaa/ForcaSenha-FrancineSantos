@@ -51,11 +51,11 @@ form .field input {
 }
 
 .indicator {
-  display: none; /* Inicialmente oculta a barra de força e a palavra de indicação */
+  display: none; 
 }
 
 .password-strength {
-  height: 12px; /* Aumenta a altura da barra de força */
+  height: 12px; 
   width: 100%;
   display: flex;
   align-items: center;
@@ -83,8 +83,8 @@ form .field input {
 .text {
   font-size: 20px;
   font-weight: 500;
-  display: none; /* Inicialmente oculta a palavra de indicação */
-  margin-top: 5px; /* Adiciona espaço acima da palavra de indicação */
+  display: none; 
+  margin-top: 5px; 
 }
 
 .text.fraco {
@@ -96,5 +96,105 @@ form .field input {
 }
 
 .text.forte {
-  color: rgb(109, 251, 0);
+  color: rgb(109, 251, 0);* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif; /* Define a fonte padrão para todo o documento */
+  }
+  
+  html, body {
+    display: grid;
+    height: 100%;
+    place-items: center; /* Centraliza o conteúdo vertical e horizontalmente */
+    text-align: center; /* Centraliza o texto dentro da página */
+    background: #171923; /* Define um fundo escuro para o HTML e o corpo da página */
+    color: #fff; /* Define a cor do texto como branco */
+  }
+  
+  .container {
+    width: 420px; /* Define a largura máxima da caixa de conteúdo */
+    background: #2d2d30; /* Define a cor de fundo da caixa de conteúdo */
+    padding: 20px 30px; /* Define preenchimento interno para o conteúdo */
+    border-radius: 5px; /* Adiciona cantos arredondados */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra à caixa de conteúdo */
+  }
+  
+  .container header {
+    font-size: 24px; /* Define o tamanho da fonte do cabeçalho */
+    font-weight: 600; /* Define o peso da fonte (negrito) */
+    line-height: 50px; /* Define o espaçamento entre linhas do texto */
+  }
+  
+  .container form {
+    margin: 20px 5px 10px 5px; /* Define margens na parte superior, direita, inferior e esquerda do formulário */
+  }
+  
+  form .field {
+    height: 45px; /* Define a altura dos campos do formulário */
+    width: 100%; /* Define a largura dos campos do formulário */
+    display: flex; /* Usa um layout flexível para os campos */
+    flex-direction: column; /* Alinha os campos verticalmente em uma coluna */
+  }
+  
+  form .field input {
+    height: 100%; /* Define a altura dos campos de entrada de senha */
+    width: 100%; /* Define a largura dos campos de entrada de senha */
+    border: 1px solid lightgrey; /* Adiciona uma borda leve */
+    padding-left: 15px; /* Adiciona preenchimento à esquerda */
+    outline: none; /* Remove o contorno padrão */
+    border-radius: 5px; /* Adiciona cantos arredondados aos campos de entrada */
+    font-size: 25px; /* Define o tamanho da fonte dos campos de entrada */
+    transition: all 0.3s; /* Adiciona uma transição suave a todas as propriedades CSS */
+  }
+  
+  .indicator {
+    display: none; /* Inicialmente, oculta a seção de indicadores de força */
+  }
+  
+  .password-strength {
+    height: 12px; /* Define a altura da barra de força de senha */
+    width: 100%; /* Define a largura da barra de força de senha */
+    display: flex; /* Usa um layout flexível para a barra de força */
+    align-items: center; /* Centraliza verticalmente os indicadores de força */
+  }
+  
+  .password-strength div {
+    flex-grow: 1; /* Faz os indicadores de força crescerem igualmente */
+    height: 100%; /* Define a altura total para preencher a barra de força */
+    transition: width 0.3s ease; /* Adiciona uma transição suave para animar a largura da barra de força */
+    border-radius: 5px; /* Adiciona cantos arredondados aos indicadores de força */
+  }
+  
+  .password-strength .weak {
+    background-color: rgb(236, 0, 0); /* Define a cor de fundo para a barra de força fraca */
+  }
+  
+  .password-strength .medium {
+    background-color: rgb(241, 106, 3); /* Define a cor de fundo para a barra de força moderada */
+  }
+  
+  .password-strength .strong {
+    background-color: rgb(109, 251, 0); /* Define a cor de fundo para a barra de força forte */
+  }
+  
+  .text {
+    font-size: 20px; /* Define o tamanho da fonte para os indicadores de força */
+    font-weight: 500; /* Define o peso da fonte dos indicadores de força (mais forte) */
+    display: none; /* Inicialmente, oculta os indicadores de força de senha */
+    margin-top: 5px; /* Adiciona um espaço superior para separar os indicadores de força da barra de força */
+  }
+  
+  .text.fraco {
+    color: rgb(236, 0, 0); /* Define a cor vermelha para o status de senha fraca */
+  }
+  
+  .text.moderado {
+    color: rgb(241, 106, 3); /* Define uma cor laranja para o status de senha moderada */
+  }
+  
+  .text.forte {
+    color: rgb(109, 251, 0); /* Define uma cor verde para o status de senha forte */
+  }
+  
 }

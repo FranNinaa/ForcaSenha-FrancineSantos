@@ -4,23 +4,37 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Verificador de Força de Senha</title>
+
+  <!-- Inclui um arquivo CSS externo chamado "style.css" -->
   <link rel="stylesheet" type="text/css" href="../CSS/style.css">
+
+  <!-- Define o ícone da página exibido na guia do navegador -->
   <link rel="icon" href="../image/senha-de-login.png" type="image/x-icon">
+
+  <!-- Carrega uma fonte da API do Google Fonts para uso no site -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
 <div class="container">
   <header>Indicando a Força da Senha</header>
+
+  <!-- Cria um formulário que será usado para inserir a senha -->
   <form action="#">
     <div class="field">
+      <!-- Cria um campo de entrada de senha -->
       <input type="password" id="password" onkeyup="verificarForcaSenha()" placeholder="Informe sua Senha">
     </div>
+
+    <!-- Cria uma seção para exibir a barra de força e o status da senha -->
     <div class="indicator">
+      <!-- Cria uma barra de força para representar a força da senha -->
       <div class="password-strength">
-        <div class="weak"></div>
-        <div class="medium"></div>
-        <div class="strong"></div>
+        <div class="weak"></div> <!-- Representa a força fraca -->
+        <div class="medium"></div> <!-- Representa a força moderada -->
+        <div class="strong"></div> <!-- Representa a força forte -->
       </div>
+
+      <!-- Exibe o status da senha, que pode ser "Fraca," "Moderada" ou "Forte" -->
       <div class="text fraco">Fraca</div>
       <div class="text moderado">Moderada</div>
       <div class="text forte">Forte</div>
@@ -28,6 +42,7 @@
   </form>
 </div>
 
+<!-- Inclui um arquivo JavaScript externo chamado "script.js" para adicionar interatividade à página -->
 <script src="../js/script.js"></script>
 </body>
 </html>
