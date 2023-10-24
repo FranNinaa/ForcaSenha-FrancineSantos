@@ -8,78 +8,26 @@
   <link rel="icon" href="../image/senha-de-login.png" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
-<body class="align">
-  <div class="grid">
-    <form action="/" method="post" class="form login">
-      <header class="login__header">
-        <h3 class="login__title">Forca da Senha</h3>
-      </header>
-      <div class="login__body">
-        <div class="form__field">
-        </div>
-        <div class="form__field">
-          <input type="password" placeholder="Senha" id="password">
-          <br><br>
-          <!-- Adicionando o elemento para exibir a força da senha -->
-          <div id="passwordStrengthText" class="password-strength-text"></div> 
-          <!-- Adicionando o elemento para exibir a pontuação da senha -->
-          <div id="pontuacao" class="pontuacao-text"></div> 
-          <br>
-          <div class="password-strength-bar" id="passwordStrengthBar">
-            <br>
-        </div>
+<body>
+<div class="container">
+  <header>Indicando a Força da Senha</header>
+  <form action="#">
+    <div class="field">
+      <input type="password" id="password" onkeyup="verificarForcaSenha()" placeholder="Informe sua Senha">
+    </div>
+    <div class="indicator">
+      <div class="password-strength">
+        <div class="weak"></div>
+        <div class="medium"></div>
+        <div class="strong"></div>
       </div>
-     
-      </div>
-  </div>
-</form>
-  <script>
-      // Obtém a referência ao campo de senha, à barra de força, ao texto da força da senha e à pontuação
-    const campoSenha = document.getElementById('password');
-    const barraForcaSenha = document.getElementById('passwordStrengthBar');
-    const textoForcaSenha = document.getElementById('passwordStrengthText');
-    const pontuacaoSenha = document.getElementById('pontuacao');
+      <div class="text fraco">Fraca</div>
+      <div class="text moderado">Moderada</div>
+      <div class="text forte">Forte</div>
+    </div>
+  </form>
+</div>
 
-    // Função para calcular a pontuação da senha com base em diferentes critérios
-    function calcularForcaSenha(senha) {
-      let pontuacao = 0;
-
-    // Adiciona pontos com base no comprimento da senha
-      if (senha.length > 1) pontuacao += 1;
-      if (senha.length > 6) pontuacao += 2;
-      if (senha.length >= 10) pontuacao += 3;
-      if (senha.length >= 12) pontuacao += 4;
-      if (senha.length >= 14) pontuacao += 5;
-
-   // Adiciona pontos se a senha contiver números, letras maiúsculas, minúsculas e caracteres especiais
-      if (/[0-9]/.test(senha)) pontuacao += 1;
-      if (/[A-Z]/.test(senha)) pontuacao += 1;
-      if (/[a-z]/.test(senha)) pontuacao += 1;
-      if (/[!@#$%^&*(),.?":{}|<>]/.test(senha)) pontuacao += 2;
-
-      return pontuacao;
-    }
-  // Função para verificar a força da senha e atualizar a exibição correspondente
-    function verificarForcaSenha() {
-      const senha = campoSenha.value;
-      const pontuacao = calcularForcaSenha(senha);
-
-      if (pontuacao >= 9) {
-        barraForcaSenha.style.width = '100%';
-        barraForcaSenha.style.backgroundColor = 'green';
-        textoForcaSenha.innerText = 'Nivel da Força da Senha: Forte';
-      } else if (pontuacao > 5 && pontuacao < 9) {
-        barraForcaSenha.style.width = '50%';
-        barraForcaSenha.style.backgroundColor = 'yellow';
-        textoForcaSenha.innerText = 'Nivel da Força da Senha: Moderada';
-      } else {
-        barraForcaSenha.style.width = '25%';
-        barraForcaSenha.style.backgroundColor = 'red';
-        textoForcaSenha.innerText = 'Nivel da Força da Senha: Fraca';
-      }
-    }
-  // Adiciona um evento de entrada para verificar a força da senha quando o usuário digita
-    campoSenha.addEventListener('input', verificarForcaSenha);
-  </script>
+<script src="../js/script.js"></script>
 </body>
 </html>
